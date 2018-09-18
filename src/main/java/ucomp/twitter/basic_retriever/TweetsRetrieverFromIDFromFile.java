@@ -7,6 +7,8 @@ import java.util.Scanner;
 
 import org.apache.log4j.Logger;
 
+import ucomp.twitter.basic_retriever.TweetsRetriever.BadParametersException;
+
 public class TweetsRetrieverFromIDFromFile {
 	private String m_sInputFile;
 	private String m_sOutputPath;
@@ -32,7 +34,7 @@ public class TweetsRetrieverFromIDFromFile {
 		this.m_sAccessTokenSecret = m_sAccessTokenSecret;
 	}
 
-	public void retrieveTweets() {
+	public void retrieveTweets() throws BadParametersException {
 		try {
 			//Get IDs
 			Scanner s = new Scanner(new File(this.m_sInputFile));

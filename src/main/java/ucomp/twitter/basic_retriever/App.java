@@ -8,6 +8,8 @@ import java.util.Properties;
 
 import org.apache.log4j.Logger;
 
+import ucomp.twitter.basic_retriever.TweetsRetriever.BadParametersException;
+
 
 /**
  * Hello world!
@@ -31,7 +33,7 @@ public class App {
 		}
 	}
 	
-	public void run() {
+	public void run() throws BadParametersException {
 		String sInputFile = s_Properties.getProperty("App.InputFile");
 		String sOuputPath = s_Properties.getProperty("App.OutputPath");
 		String sRetrievMode = s_Properties.getProperty("App.retrievemode");
@@ -47,6 +49,11 @@ public class App {
 	
 	public static void main( String[] args) {
 		App myApp = new App();
-		myApp.run();
+		try {
+			myApp.run();
+		}
+		catch (BadParametersException exception) {
+			
+		}
 	}
 }

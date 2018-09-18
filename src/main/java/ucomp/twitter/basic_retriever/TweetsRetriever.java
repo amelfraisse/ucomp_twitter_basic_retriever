@@ -42,7 +42,28 @@ public class TweetsRetriever {
 
 	//Root method to retrieve tweets by ID. Limited to 100 tweets as per lookup api limitation
 	//Return the list of Ids retrived
-	public List<Long> retrieve(long[] lstIds) {
+	public List<Long> retrieve(long[] lstIds) throws BadParametersException {
+		if (this.m_sRetrieveMode  == null || this.m_sRetrieveMode.isEmpty()) {
+			logger.error("Check sRetrieveMode");
+			return null;
+		}
+		if (this.m_sConsumerKey  == null || this.m_sConsumerKey.isEmpty()) {
+			logger.error("Check m_sConsumerKey");
+			throw new BadParametersException("m_sConsumerKey");
+		}
+		if (this.m_sSecretKey  == null || this.m_sSecretKey.isEmpty()) {
+			logger.error("Check m_sSecretKey");
+			throw new BadParametersException("m_sSecretKey");
+		}
+		if (this.m_sAccessToken  == null || this.m_sAccessToken.isEmpty()) {
+			logger.error("Check m_sAccessToken");
+			throw new BadParametersException("m_sAccessToken");
+		}
+		if (this.m_sAccessTokenSecret  == null || this.m_sAccessTokenSecret.isEmpty()) {
+			logger.error("Check m_sAccessTokenSecret");
+			throw new BadParametersException("m_sAccessTokenSecret");
+		}
+
 		ArrayList<Long> lstRetrievedIds = new ArrayList<Long>();
 		if (lstIds.length <= 0) {
 			logger.info("No IDs specified");
@@ -137,4 +158,11 @@ public class TweetsRetriever {
 		
 		return lstRetrievedIds;
 	}
+
+	class BadParametersException extends Exception {
+		public BadParametersException(String sParamter) {
+			super("Bad paramter: " + sParamter);
+		}
+	}
+
 }
