@@ -16,5 +16,5 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
-    codeCoverageToolOption: 'cobertura'
+    codeCoverageToolOption: 'jaCoCo'
     goals: 'package -Dmaven.test.failure.ignore=true'
