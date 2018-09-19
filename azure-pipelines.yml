@@ -7,7 +7,7 @@ pool:
   vmImage: 'Ubuntu 16.04'
 
 steps:
-- task: SonarSource.sonarcloud.14d9cde6-c1da-4d55-aa01-2965cd301255.SonarCloudPrepare@1
+- task: SonarSource.sonarcloud.SonarCloudPrepare@1
   displayName: 'Prepare analysis on SonarCloud'
   inputs:
     SonarCloud: AzureDevOps
@@ -29,6 +29,6 @@ steps:
   inputs:
     summaryFileLocation: '$(System.DefaultWorkingDirectory)/ucomp_twitter_basic_retriever/**/site/cobertura/coverage.xml'
     
-- task: SonarSource.sonarcloud.38b27399-a642-40af-bb7d-9971f69712e8.SonarCloudPublish@1
+- task: SonarSource.sonarcloud.SonarCloudPublish@1
   displayName: 'Publish Quality Gate Result'
 
