@@ -45,7 +45,7 @@ public class TweetsRetriever {
 	public List<Long> retrieve(long[] lstIds) throws BadParametersException {
 		if (this.m_sRetrieveMode  == null || this.m_sRetrieveMode.isEmpty()) {
 			logger.error("Check sRetrieveMode");
-			return null;
+			throw new BadParametersException("m_sRetrieveMode");
 		}
 		if (this.m_sConsumerKey  == null || this.m_sConsumerKey.isEmpty()) {
 			logger.error("Check m_sConsumerKey");
