@@ -41,6 +41,7 @@
 	      <uniqueVersion>false</uniqueVersion>
 	      <id>github</id>
 	      <name>GitHub Package Repository</name>
+	      <url>https://maven.pkg.github.com/amelfraisse/ucomp_twitter_basic_retriever</url>
 	      <layout>default</layout>
 	    </repository>
  	</distributionManagement>
