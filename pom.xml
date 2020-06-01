@@ -41,7 +41,6 @@
 	      <uniqueVersion>false</uniqueVersion>
 	      <id>github</id>
 	      <name>GitHub Package Repository</name>
-	      <url>scp://repo/maven2</url>
 	      <layout>default</layout>
 	    </repository>
  	</distributionManagement>
