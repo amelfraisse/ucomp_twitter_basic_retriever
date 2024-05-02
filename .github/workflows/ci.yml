@@ -23,6 +23,11 @@ jobs:
         java-version: 17
     - name: Build with Maven
       run: mvn -B verify --file pom.xml
+    - name: Run SonarCloud analyse
+      run: mvn --batch-mode clean package sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=amelfraisse-github -Dsonar.projectKey=amelfraisse_ucomp_twitter_basic_retriever
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} 
 
  #   - name: SonarCloud Scan
  #     uses: sonarsource/sonarcloud-github-action@master
@@ -30,11 +35,6 @@ jobs:
  #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
  #       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
   
-    - name: Run SonarCloud analyse
-    run: mvn --batch-mode clean package sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=amelfraisse-github -Dsonar.projectKey=amelfraisse_ucomp_twitter_basic_retriever
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} 
 
  #   - name: Publish to GitHub Packages Apache Maven
  #     run: mvn deploy
